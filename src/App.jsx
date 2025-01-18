@@ -29,9 +29,10 @@ function App() {
     }
   ]
 
-  function handleSrch(term){
-    console.log(term);
-    setSearchTerm(term)
+  function handleSrch(e){
+    const newValue = e.target.value 
+    console.log(newValue);
+    setSearchTerm(newValue)
   }
 
 
@@ -52,15 +53,12 @@ function Welcome() {
 
 
 function Search(props){
-  function handleInput(e) {
-    const newValue = e.target.value
-    props.onSearch(newValue)
-  }
+  
 
   return(
     <>
       <label htmlFor="srch">Search:</label>
-      <input type="text" id="srch" onInput={handleInput}/>
+      <input type="text" id="srch" onInput={props.onSearch}/>
     </>
   )
 }
