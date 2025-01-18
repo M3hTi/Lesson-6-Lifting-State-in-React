@@ -3,6 +3,8 @@ import * as React from 'react'
 import './App.css'
 
 function App() {
+  const [serachTerm, setSearchTerm] = React.useState('')
+
   const products = [
     {
       id: 1,
@@ -28,7 +30,8 @@ function App() {
   ]
 
   function handleSrch(term){
-    console.log(`term in partent is : ${term}`);
+    console.log(term);
+    setSearchTerm(term)
   }
 
 
@@ -49,11 +52,8 @@ function Welcome() {
 
 
 function Search(props){
-  const [serachTerm, setSearchTerm] = React.useState('')
-
   function handleInput(e) {
     const newValue = e.target.value
-    setSearchTerm(newValue)
     props.onSearch(newValue)
   }
 
