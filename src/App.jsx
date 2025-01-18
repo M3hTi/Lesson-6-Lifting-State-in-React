@@ -39,7 +39,7 @@ function App() {
   return (
     <>
       < Welcome />
-      <Search onSearch={handleSrch} />
+      <Search onSearch={handleSrch} text={serachTerm} />
       <List items={products} />
     </>
   )
@@ -59,6 +59,8 @@ function Search(props){
     <>
       <label htmlFor="srch">Search:</label>
       <input type="text" id="srch" onInput={props.onSearch}/>
+
+      <p>serching for {props.text}</p>
     </>
   )
 }
