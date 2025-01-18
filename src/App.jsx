@@ -26,6 +26,14 @@ function App() {
       id: 5,
       title: 'C# Book',
       price: 15
+    },{
+      id: 6,
+      title: 'Go Book',
+      price: 30
+    },{
+      id: 7,
+      title: 'Graphql Book',
+      price: 40
     }
   ]
 
@@ -36,11 +44,14 @@ function App() {
   }
 
 
+  const matchProduct = products.filter(item => item.title.toLowerCase().includes(serachTerm.toLowerCase()))
+
+
   return (
     <>
       < Welcome />
       <Search onSearch={handleSrch} text={serachTerm} />
-      <List items={products} />
+      <List items={matchProduct} />
     </>
   )
 }
