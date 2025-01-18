@@ -27,10 +27,15 @@ function App() {
     }
   ]
 
+  function handleSrch(term){
+    console.log(`term in partent is : ${term}`);
+  }
+
 
   return (
     <>
       < Welcome />
+      <Search onSearch={handleSrch} />
       <List items={products} />
     </>
   )
@@ -41,6 +46,31 @@ function Welcome() {
     <h1>Hello, React</h1>
   )
 }
+
+
+function Search(props){
+  const [serachTerm, setSearchTerm] = React.useState('')
+
+  function handleInput(e) {
+    const newValue = e.target.value
+    setSearchTerm(newValue)
+    props.onSearch(newValue)
+  }
+
+  return(
+    <>
+      <label htmlFor="srch">Search:</label>
+      <input type="text" id="srch" onInput={handleInput}/>
+    </>
+  )
+}
+
+
+
+
+
+
+
 
 function List(props) {
   return(
