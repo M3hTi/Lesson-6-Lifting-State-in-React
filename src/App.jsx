@@ -3,7 +3,7 @@ import * as React from 'react'
 import './App.css'
 
 function App() {
-  const [serachTerm, setSearchTerm] = React.useState('React')
+  const [serachTerm, setSearchTerm] = React.useState('')
 
   const products = [
     {
@@ -63,15 +63,15 @@ function Welcome() {
 }
 
 
-function Search(props){
+function Search({onSearch , text}){
   
 
   return(
     <>
       <label htmlFor="srch">Search:</label>
-      <input value={props.text} type="text" id="srch" onInput={props.onSearch}/>
+      <input value={text} type="text" id="srch" onInput={onSearch}/>
 
-      <p>serching for {props.text}</p>
+      <p>serching for {text}</p>
     </>
   )
 }
@@ -83,10 +83,10 @@ function Search(props){
 
 
 
-function List(props) {
+function List({items}) {
   return(
     <ul>
-      {props.items.map(item => {
+      {items.map(item => {
         return(
           <li key={item.id}>
             <p>{item.title} , <span>Price: {item.price.toLocaleString("en-US", {style:"currency", currency:"USD"})} </span></p>
