@@ -3,7 +3,7 @@ import * as React from 'react'
 import './App.css'
 
 function App() {
-  const [serachTerm, setSearchTerm] = React.useState('')
+  const [serachTerm, setSearchTerm] = React.useState('React')
 
   const products = [
     {
@@ -69,7 +69,7 @@ function Search(props){
   return(
     <>
       <label htmlFor="srch">Search:</label>
-      <input type="text" id="srch" onInput={props.onSearch}/>
+      <input value={props.text} type="text" id="srch" onInput={props.onSearch}/>
 
       <p>serching for {props.text}</p>
     </>
